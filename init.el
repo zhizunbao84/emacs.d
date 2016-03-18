@@ -59,7 +59,7 @@
 (require 'init-tabbar)
 (require 'init-editing-utils)
 (require 'init-evil)
-(require 'init-matlab)
+;;(require 'init-matlab)
 
 ;; (require 'init-vc)
 ;; (require 'init-darcs)
@@ -67,19 +67,19 @@
 
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
-(require 'init-markdown)
+;;(require 'init-markdown)
 (require 'init-auctex)
 ;; (require 'init-csv)
 ;; (require 'init-erlang)
 ;; (require 'init-javascript)
 ;; (require 'init-php)
-(require 'init-org)
+;;(require 'init-org)
 ;; (require 'init-nxml)
 ;; (require 'init-html)
 ;; (require 'init-css)
 ;; (require 'init-haml)
 ;; (require 'init-python-mode)
-(require 'init-haskell)
+;;(require 'init-haskell)
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
 ;; (require 'init-sql)
@@ -144,5 +144,30 @@
 ;;              (message "init completed in %.2fms"
 ;;                       (sanityinc/time-subtract-millis after-init-time before-init-time))))
 
+;;(setq load-path (cons "G:/emacs-24.5/.emacs.d/elpa/htmlize-20130207.1202/" load-path))
+(require 'htmlize-autoloads)
+
+
+;;(setq load-path (cons "G:/emacs-24.5/.emacs.d/org2blog/" load-path))
+(require 'org2blog-autoloads)
+
+(setq org2blog/wp-blog-alist
+      '(("wordpress"
+         :url "http://127.0.0.1/wordpress442/xmlrpc.php"
+         :username "zhizunbao84"
+         :default-title "Hello World"
+         :default-categories ("other")
+         :org2blog/wp-use-sourcecode-shortcode 
+         :tags-as-categories nil)))
+
+;;(setq org-src-fontify-natively t)
+(setq wp-use-sourcecode-shortcode t)
+;; removed light="true"
+(setq org2blog/wp-sourcecode-default-params nil)
+(setq org2blog/wp-sourcecode-langs
+		'("actionscript3" "bash" "coldfusion" "cpp" "csharp" "css" "delphi"
+		"erlang" "fsharp" "diff" "groovy" "javascript" "java" "javafx" "matlab"
+		"objc" "perl" "php" "text" "powershell" "python" "ruby" "scala" "sql"
+		"vb" "xml" "sh" "emacs-lisp" "lisp" "lua"))
 
 (provide 'init)
